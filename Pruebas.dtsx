@@ -12,11 +12,21 @@
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{750E9CBD-77F6-45E8-906B-DCC4D1328ED0}">
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{A2DE3911-0AEB-4A91-976B-3830B932DDDA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[BorradoBatchFTPresup.txt]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{1E7D5983-33BD-47B2-B66D-C3AECA510533}"
+      DTS:ObjectName="BorradoBatchFTPresup.txt">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\ETL UCU\UCU_CARGA_FINANZAS\BorradoBatchFTPresup.txt" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[PROD-UCUDBS10\POWERBI.DW_UCU]"
       DTS:CreationName="OLEDB"
@@ -37,12 +47,12 @@
           DTS:ConnectionString="Data Source=PROD-UCUDBS10\POWERBI;User ID=rcalvo;Initial Catalog=ODS_UCU;Provider=SQLNCLI11.1;Auto Translate=False;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="xbRtsp3JZ3E="
-            IV="s0V3Y7QcNpjapCAZbxuHzw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="/Dr7PoiBHLI="
+            IV="qc0s5yj1EJTbL8otjXbPYg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>s0V3Y7QcNpjapCAZbxuHzz4RtukpmbNlYf56sKJ8SonIqu8zeo8ubgUZD+4wkkWKn/zw9Z2YOSDyJkiMw0UmQzoXM4Vpuphs2kUkeXt0bf7XH8CqMlxW1or19lFRJpg/hI2eElu5hjwUMMXI4CWGVKife1lJyJDoKn/VctdOxCtNFOlQo0xlZ0TZuJMsk7ZM</CipherValue>
+              <CipherValue>qc0s5yj1EJTbL8otjXbPYp1g1Mg1jzmSfYw8NHhjIvwJIIUFjEFfjxQTm9fN6JfRHcFL0RZBmNeXfN8pt8mxruyJL0HFf3kfnKQ7kpF4wMo7HtG/tXvy0pAFh/HFhlNVWeG5pPoW82XywItSKosEmiBAJEqTs+Vd327w1bikqDXwZQbbyoozbjwmb5urLOaA</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -55,6 +65,7 @@
       DTS:refId="Package\Centros Costo"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tarea Flujo de datos"
+      DTS:Disabled="True"
       DTS:DTSID="{5AB12FDD-15C0-4C6F-A809-3DC256816438}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -771,9 +782,43 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Presupuesto"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{5F9B11BC-C8DF-40D0-A3F1-7894367004EB}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Presupuesto"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Prueba borrado batch"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{EBCFDF81-047E-45A0-971B-5DA51FA96B7F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Prueba borrado batch"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{930BC459-2D6A-43B9-906A-D3D946486EA1}"
+          SQLTask:SqlStmtSourceType="FileConnection"
+          SQLTask:SqlStatementSource="BorradoBatchFTPresup.txt" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\Tarea Flujo de datos"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tarea Flujo de datos"
+      DTS:Disabled="True"
       DTS:DTSID="{7B1A9AD9-6985-4B87-81C0-59591CA2D8BC}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -3593,6 +3638,7 @@ FROM ODS_FIN_CCOSTOS</property>
       DTS:refId="Package\Unidades Operativas"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tarea Flujo de datos"
+      DTS:Disabled="True"
       DTS:DTSID="{128FA50C-3831-4722-A43D-CED7B7E1483C}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -4037,6 +4083,16 @@ FROM ODS_FIN_CCOSTOS</property>
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{7D8708E7-515D-4016-9342-5E17B596D761}"
+      DTS:From="Package\Prueba borrado batch"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\Presupuesto" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
 <!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
@@ -4048,7 +4104,7 @@ FROM ODS_FIN_CCOSTOS</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="145,42"
           Id="Package\Centros Costo"
@@ -4061,6 +4117,36 @@ FROM ODS_FIN_CCOSTOS</property>
           Size="176,43"
           Id="Package\Unidades Operativas"
           TopLeft="5.5,122.5" />
+        <NodeLayout
+          Size="181,42"
+          Id="Package\Prueba borrado batch"
+          TopLeft="323.5,112.5" />
+        <NodeLayout
+          Size="137,42"
+          Id="Package\Presupuesto"
+          TopLeft="625.5,109.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="504.5,132">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="121,0"
+              Start="0,0"
+              End="113.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="113.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
