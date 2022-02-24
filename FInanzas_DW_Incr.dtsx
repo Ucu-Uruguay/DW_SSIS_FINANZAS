@@ -12,8 +12,8 @@
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{DFBCDDCC-065D-4BE3-9011-8FE7EF2C581B}">
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{0E76B62E-BA97-4BDE-825A-879619832F18}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -68,12 +68,12 @@
           DTS:ConnectionString="Data Source=PROD-UCUDBS10\POWERBI;User ID=rcalvo;Initial Catalog=ODS_UCU;Provider=SQLNCLI11.1;Auto Translate=False;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="Fv/KzgTqOB8="
-            IV="cyf+SrqYyyDHyndhrnDdMQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="I7en2go0dKs="
+            IV="9jMfmAhEmAt4t87rT5YnnQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>cyf+SrqYyyDHyndhrnDdMXGI6ZVlq1td250Vb+CGh+vTMekOdgx6Jx2wBLWrs3zBd2nOJIbq+X2U8rLHdJvWmM2gKxV01S2FB16vLwrWQTYNNOWxnTJxU4+V9UWHeOnEY/M1Du5/a3R15miA+WmCLM42L5ykwltx+sbswC9M6znxEzJs+mWMLqEtnzU96ld6</CipherValue>
+              <CipherValue>9jMfmAhEmAt4t87rT5YnnfeHt+5hFoRAPSlya8Qq0gl0/zyaknJkFUzsYZl6fKcLnRE2ArIwbXK5FlmKybTUbH0mYluCiex47CU+497UWIHUMwzJVNZ64LBa+AAwNiM+plvOBd8qurmnT/L6zwfv7xkNMwuKxNFS2vvVR2EzJt0Dz4z8AxwUpJ8KhGfUMmb8</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -89,12 +89,12 @@
           DTS:ConnectionString="Data Source=PROD-UCUDBS10\POWERBI;User ID=rcalvo;Initial Catalog=ODS_UCU;Provider=SQLNCLI11.1;Auto Translate=False;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="TsVFC0F0F1E="
-            IV="ufLNNhvJ1IVntT4mo63Iig==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="bp+QhB5y7XI="
+            IV="W9EwfOKKZdT9pLrCj1ZrYA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>ufLNNhvJ1IVntT4mo63Iiv8JI281ndmgJrBTMn5u9viYGDsBWZgc5eaF6RRckUkJbhqU8QAdpOQdMZI2mvzIUYV1ogRJzomPLqLaRZqLFPTsOm8Xsarnho7gyTd5SvkD4KB0CJBMv1mqOJ5wUHgZEMFnU0eHs3+y5TOkLsXc4dm21diVETvw/lIeQ/Osiznx</CipherValue>
+              <CipherValue>W9EwfOKKZdT9pLrCj1ZrYMjuRhHa1LhMgYiTJlJW1G04hRr/ifLUwt2Q8/ltFlniOTdkK5EAcdsJ08hn/ZPLorDRZ/qw3ronS40kI3R9MwTIpZRuMRk3zBFnSLH2IiLS2A5C4eaHzR/b/EjxUleZdFuRgRuJpDgnwbeepgkx84d35S1huhx2A3RNasmHW1rh</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -5786,7 +5786,7 @@ GROUP BY CENTRO_COSTO_NOD_DEPTO_ID, CENTRO_COSTO_NOD_DEPTO_TIPO, CENTRO_COSTO_NO
 FROM            dbo.ODS_FIN_PRESUPUESTOS AS P INNER JOIN
                          dbo.ODS_FIN_NDM_CCOSTO AS CCN ON CCN.NODUM_CC_ID = P.PRESUPUESTO_CENTRO_COSTO INNER JOIN
                          dbo.ODS_FIN_CCOSTOS AS CC ON P.PRESUPUESTO_CENTRO_COSTO = CC.CENTRO_COSTO_NOD_ID
-WHERE        (P.SOURCE = 'NODUM' AND P.PRESUPUESTO_ANIO_FISCAL&gt;year(getdate())-2)</property>
+WHERE        (P.SOURCE = 'NODUM' AND (P.PRESUPUESTO_ANIO_FISCAL = year(getdate()) OR P.PRESUPUESTO_ANIO_FISCAL = year(getdate())-1))</property>
                 <property
                   dataType="System.String"
                   description="Variable que contiene el comando SQL para ejecutar."
@@ -6157,6 +6157,10 @@ WHERE        (P.SOURCE = 'NODUM' AND P.PRESUPUESTO_ANIO_FISCAL&gt;year(getdate()
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="241,42"
+          Id="Package\Borrar ultimos 2 años presupuesto"
+          TopLeft="273.666666666667,174.5" />
+        <NodeLayout
           Size="140,42"
           Id="Package\DW Finanzas"
           TopLeft="60,60" />
@@ -6164,6 +6168,10 @@ WHERE        (P.SOURCE = 'NODUM' AND P.PRESUPUESTO_ANIO_FISCAL&gt;year(getdate()
           Size="152,42"
           Id="Package\Finanzas Actual"
           TopLeft="318.166666666667,67" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Tarea Flujo de datos"
+          TopLeft="306.166666666667,277.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
           TopLeft="200,84.5">
@@ -6186,10 +6194,6 @@ WHERE        (P.SOURCE = 'NODUM' AND P.PRESUPUESTO_ANIO_FISCAL&gt;year(getdate()
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="241,42"
-          Id="Package\Borrar ultimos 2 años presupuesto"
-          TopLeft="273.666666666667,174.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 1]"
           TopLeft="394.166666666667,109">
@@ -6212,10 +6216,6 @@ WHERE        (P.SOURCE = 'NODUM' AND P.PRESUPUESTO_ANIO_FISCAL&gt;year(getdate()
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="176,42"
-          Id="Package\Tarea Flujo de datos"
-          TopLeft="306.166666666667,277.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 2]"
           TopLeft="394.166666666667,216.5">
@@ -6247,17 +6247,13 @@ WHERE        (P.SOURCE = 'NODUM' AND P.PRESUPUESTO_ANIO_FISCAL&gt;year(getdate()
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="145,42"
-          Id="Package\Finanzas Actual\Unión de todo"
-          TopLeft="598.5,106.5" />
+          Size="238,42"
+          Id="Package\Finanzas Actual\DT_UNIDAD_OPERATIVA_CLASIF"
+          TopLeft="797.454909819639,305.5" />
         <NodeLayout
           Size="194,42"
           Id="Package\Finanzas Actual\Mapeo Centros de Costo"
           TopLeft="5.5,106.5" />
-        <NodeLayout
-          Size="238,42"
-          Id="Package\Finanzas Actual\DT_UNIDAD_OPERATIVA_CLASIF"
-          TopLeft="797.454909819639,305.5" />
         <NodeLayout
           Size="215,42"
           Id="Package\Finanzas Actual\FIN_DT_PLAN_DE_CUENTAS"
@@ -6271,17 +6267,25 @@ WHERE        (P.SOURCE = 'NODUM' AND P.PRESUPUESTO_ANIO_FISCAL&gt;year(getdate()
           Id="Package\Finanzas Actual\FIN_DT_CENTROS_COSTOS"
           TopLeft="786.5,106.5" />
         <NodeLayout
-          Size="162,42"
-          Id="Package\Finanzas Actual\Magix hasta 2020"
-          TopLeft="234.5,106.5" />
+          Size="208,42"
+          Id="Package\Finanzas Actual\Unidades Operativas TODO"
+          TopLeft="499.5,307.5" />
+        <NodeLayout
+          Size="145,42"
+          Id="Package\Finanzas Actual\Unión de todo"
+          TopLeft="598.5,106.5" />
+        <NodeLayout
+          Size="199,42"
+          Id="Package\Finanzas Actual\Seguridad CCosto Nodum"
+          TopLeft="497.5,221.5" />
         <NodeLayout
           Size="184,42"
           Id="Package\Finanzas Actual\DT_CENTROS_COSTO"
           TopLeft="250.254628557772,223" />
         <NodeLayout
-          Size="202,42"
-          Id="Package\Finanzas Actual\Unidades Operativas NDM"
-          TopLeft="12.5,301.5" />
+          Size="162,42"
+          Id="Package\Finanzas Actual\Magix hasta 2020"
+          TopLeft="234.5,106.5" />
         <NodeLayout
           Size="153,42"
           Id="Package\Finanzas Actual\Plan de cuentas"
@@ -6295,10 +6299,6 @@ WHERE        (P.SOURCE = 'NODUM' AND P.PRESUPUESTO_ANIO_FISCAL&gt;year(getdate()
           Id="Package\Finanzas Actual\DT_FIN_UNIDAD_OPERATIVA"
           TopLeft="241.5,303.5" />
         <NodeLayout
-          Size="199,42"
-          Id="Package\Finanzas Actual\Seguridad CCosto Nodum"
-          TopLeft="497.5,221.5" />
-        <NodeLayout
           Size="159,42"
           Id="Package\Finanzas Actual\Centros de Costo"
           TopLeft="18.254628557772,223" />
@@ -6307,9 +6307,75 @@ WHERE        (P.SOURCE = 'NODUM' AND P.PRESUPUESTO_ANIO_FISCAL&gt;year(getdate()
           Id="Package\Finanzas Actual\Columna derivada"
           TopLeft="393.5,62.5" />
         <NodeLayout
-          Size="208,42"
-          Id="Package\Finanzas Actual\Unidades Operativas TODO"
-          TopLeft="499.5,307.5" />
+          Size="202,42"
+          Id="Package\Finanzas Actual\Unidades Operativas NDM"
+          TopLeft="12.5,301.5" />
+        <EdgeLayout
+          Id="Package\Finanzas Actual.Paths[Salida de Unión de todo 1]"
+          TopLeft="743.5,127.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="43,0"
+              Start="0,0"
+              End="35.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="35.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Finanzas Actual.Paths[Salida de origen de OLE DB5]"
+          TopLeft="696.5,241.892180094787">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="68.3309178743961,0"
+              Start="0,0"
+              End="60.8309178743961,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="60.8309178743961,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Finanzas Actual.Paths[Salida de origen de OLE DB4]"
+          TopLeft="177.254628557772,244">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="73,0"
+              Start="0,0"
+              End="65.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="65.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Finanzas Actual.Paths[Salida de origen de OLE DB3]"
           TopLeft="707.5,327.5">
@@ -6524,72 +6590,6 @@ WHERE        (P.SOURCE = 'NODUM' AND P.PRESUPUESTO_ANIO_FISCAL&gt;year(getdate()
             <mssgm:EdgeLabel
               BoundingBox="23.77748046875,-18,26.9450390625,11.384765625"
               RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Finanzas Actual.Paths[Salida de Unión de todo 1]"
-          TopLeft="743.5,127.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="43,0"
-              Start="0,0"
-              End="35.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="35.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Finanzas Actual.Paths[Salida de origen de OLE DB5]"
-          TopLeft="696.5,241.892180094787">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="68.3309178743961,0"
-              Start="0,0"
-              End="60.8309178743961,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="60.8309178743961,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Finanzas Actual.Paths[Salida de origen de OLE DB4]"
-          TopLeft="177.254628557772,244">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="73,0"
-              Start="0,0"
-              End="65.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="65.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <AnnotationLayout
