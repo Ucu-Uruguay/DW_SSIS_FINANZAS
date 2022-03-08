@@ -12,8 +12,8 @@
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{A2DE3911-0AEB-4A91-976B-3830B932DDDA}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{CD419C4E-70EE-4899-862D-F8000CB7FBBA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -47,12 +47,12 @@
           DTS:ConnectionString="Data Source=PROD-UCUDBS10\POWERBI;User ID=rcalvo;Initial Catalog=ODS_UCU;Provider=SQLNCLI11.1;Auto Translate=False;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="/Dr7PoiBHLI="
-            IV="qc0s5yj1EJTbL8otjXbPYg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="wuyHeL4qlzU="
+            IV="HdfM3sajsZQReAh+X+8hGg==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>qc0s5yj1EJTbL8otjXbPYp1g1Mg1jzmSfYw8NHhjIvwJIIUFjEFfjxQTm9fN6JfRHcFL0RZBmNeXfN8pt8mxruyJL0HFf3kfnKQ7kpF4wMo7HtG/tXvy0pAFh/HFhlNVWeG5pPoW82XywItSKosEmiBAJEqTs+Vd327w1bikqDXwZQbbyoozbjwmb5urLOaA</CipherValue>
+              <CipherValue>HdfM3sajsZQReAh+X+8hGoHBeHwIz26UPY+iJciXPzE70UnM7acUKwdEWUdURc1ijUYB5zCM3x3RGYMVSQsTYmo2dkyY/FsnQ/y0Xlk6304GUFMkL/9ChaT/7nSVZ/wo1cmqu2SdaqSnnJpY7BwM02xT86xSYshKE6yd2pq97nd6xRXnyKko5i+2aYxrcG7L</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -785,6 +785,7 @@
       DTS:refId="Package\Presupuesto"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tarea Flujo de datos"
+      DTS:Disabled="True"
       DTS:DTSID="{5F9B11BC-C8DF-40D0-A3F1-7894367004EB}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -800,6 +801,7 @@
       DTS:refId="Package\Prueba borrado batch"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
+      DTS:Disabled="True"
       DTS:DTSID="{EBCFDF81-047E-45A0-971B-5DA51FA96B7F}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -812,6 +814,453 @@
           SQLTask:Connection="{930BC459-2D6A-43B9-906A-D3D946486EA1}"
           SQLTask:SqlStmtSourceType="FileConnection"
           SQLTask:SqlStatementSource="BorradoBatchFTPresup.txt" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Solo Centros de costo"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{30FC2301-0F38-4A92-B5E2-8E34869902E4}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Solo Centros de costo"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Solo Centros de costo\Centros de Costo"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Centros de Costo"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[ODS_FIN_CENTROS_COSTOS]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Solo Centros de costo\Centros de Costo.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[PROD-UCUDBS10\POWERBI.ODS_UCU.rcalvo]"
+                  connectionManagerRefId="Package.ConnectionManagers[PROD-UCUDBS10\POWERBI.ODS_UCU.rcalvo]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].Columns[CENTRO_COSTO_ANIO]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].ExternalColumns[CENTRO_COSTO_ANIO]"
+                      lineageId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].Columns[CENTRO_COSTO_ANIO]"
+                      name="CENTRO_COSTO_ANIO"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].Columns[FIN_CC_CLAVE_UNIF]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].ExternalColumns[FIN_CC_CLAVE_UNIF]"
+                      length="15"
+                      lineageId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].Columns[FIN_CC_CLAVE_UNIF]"
+                      name="FIN_CC_CLAVE_UNIF"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].Columns[FIN_CC_DESCR]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].ExternalColumns[FIN_CC_DESCR]"
+                      length="100"
+                      lineageId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].Columns[FIN_CC_DESCR]"
+                      name="FIN_CC_DESCR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].Columns[FIN_CC_CLAVE_UNOP]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].ExternalColumns[FIN_CC_CLAVE_UNOP]"
+                      length="10"
+                      lineageId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].Columns[FIN_CC_CLAVE_UNOP]"
+                      name="FIN_CC_CLAVE_UNOP"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].Columns[FIN_CC_DESCR_UNOP]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].ExternalColumns[FIN_CC_DESCR_UNOP]"
+                      length="100"
+                      lineageId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].Columns[FIN_CC_DESCR_UNOP]"
+                      name="FIN_CC_DESCR_UNOP"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].Columns[FIN_CC_DESCR_CORTA_UNOP]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].ExternalColumns[FIN_CC_DESCR_CORTA_UNOP]"
+                      length="50"
+                      lineageId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].Columns[FIN_CC_DESCR_CORTA_UNOP]"
+                      name="FIN_CC_DESCR_CORTA_UNOP"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].Columns[fuente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].ExternalColumns[fuente]"
+                      length="5"
+                      lineageId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].Columns[fuente]"
+                      name="fuente"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].ExternalColumns[CENTRO_COSTO_ANIO]"
+                      dataType="numeric"
+                      name="CENTRO_COSTO_ANIO"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].ExternalColumns[FIN_CC_CLAVE_UNIF]"
+                      dataType="wstr"
+                      length="15"
+                      name="FIN_CC_CLAVE_UNIF" />
+                    <externalMetadataColumn
+                      refId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].ExternalColumns[FIN_CC_DESCR]"
+                      dataType="wstr"
+                      length="100"
+                      name="FIN_CC_DESCR" />
+                    <externalMetadataColumn
+                      refId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].ExternalColumns[FIN_CC_CLAVE_UNOP]"
+                      dataType="wstr"
+                      length="10"
+                      name="FIN_CC_CLAVE_UNOP" />
+                    <externalMetadataColumn
+                      refId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].ExternalColumns[FIN_CC_DESCR_UNOP]"
+                      dataType="wstr"
+                      length="100"
+                      name="FIN_CC_DESCR_UNOP" />
+                    <externalMetadataColumn
+                      refId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].ExternalColumns[FIN_CC_DESCR_CORTA_UNOP]"
+                      dataType="wstr"
+                      length="50"
+                      name="FIN_CC_DESCR_CORTA_UNOP" />
+                    <externalMetadataColumn
+                      refId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].ExternalColumns[fuente]"
+                      dataType="wstr"
+                      length="5"
+                      name="fuente" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de error de origen de OLE DB].Columns[CENTRO_COSTO_ANIO]"
+                      dataType="numeric"
+                      lineageId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de error de origen de OLE DB].Columns[CENTRO_COSTO_ANIO]"
+                      name="CENTRO_COSTO_ANIO"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de error de origen de OLE DB].Columns[FIN_CC_CLAVE_UNIF]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de error de origen de OLE DB].Columns[FIN_CC_CLAVE_UNIF]"
+                      name="FIN_CC_CLAVE_UNIF" />
+                    <outputColumn
+                      refId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de error de origen de OLE DB].Columns[FIN_CC_DESCR]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de error de origen de OLE DB].Columns[FIN_CC_DESCR]"
+                      name="FIN_CC_DESCR" />
+                    <outputColumn
+                      refId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de error de origen de OLE DB].Columns[FIN_CC_CLAVE_UNOP]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de error de origen de OLE DB].Columns[FIN_CC_CLAVE_UNOP]"
+                      name="FIN_CC_CLAVE_UNOP" />
+                    <outputColumn
+                      refId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de error de origen de OLE DB].Columns[FIN_CC_DESCR_UNOP]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de error de origen de OLE DB].Columns[FIN_CC_DESCR_UNOP]"
+                      name="FIN_CC_DESCR_UNOP" />
+                    <outputColumn
+                      refId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de error de origen de OLE DB].Columns[FIN_CC_DESCR_CORTA_UNOP]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de error de origen de OLE DB].Columns[FIN_CC_DESCR_CORTA_UNOP]"
+                      name="FIN_CC_DESCR_CORTA_UNOP" />
+                    <outputColumn
+                      refId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de error de origen de OLE DB].Columns[fuente]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de error de origen de OLE DB].Columns[fuente]"
+                      name="fuente" />
+                    <outputColumn
+                      refId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Solo Centros de costo\DT_CENTROS_COSTO"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="DT_CENTROS_COSTO"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[DT_CENTROS_COSTO]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Solo Centros de costo\DT_CENTROS_COSTO.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[PROD-UCUDBS10\POWERBI.DW_UCU]"
+                  connectionManagerRefId="Package.ConnectionManagers[PROD-UCUDBS10\POWERBI.DW_UCU]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Solo Centros de costo\DT_CENTROS_COSTO.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Solo Centros de costo\DT_CENTROS_COSTO.Inputs[Entrada de destino de OLE DB].Columns[CENTRO_COSTO_ANIO]"
+                      cachedDataType="numeric"
+                      cachedName="CENTRO_COSTO_ANIO"
+                      cachedPrecision="4"
+                      externalMetadataColumnId="Package\Solo Centros de costo\DT_CENTROS_COSTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[CENTRO_COSTO_ANIO]"
+                      lineageId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].Columns[CENTRO_COSTO_ANIO]" />
+                    <inputColumn
+                      refId="Package\Solo Centros de costo\DT_CENTROS_COSTO.Inputs[Entrada de destino de OLE DB].Columns[FIN_CC_CLAVE_UNIF]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="FIN_CC_CLAVE_UNIF"
+                      externalMetadataColumnId="Package\Solo Centros de costo\DT_CENTROS_COSTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[FIN_CC_CLAVE_UNIF]"
+                      lineageId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].Columns[FIN_CC_CLAVE_UNIF]" />
+                    <inputColumn
+                      refId="Package\Solo Centros de costo\DT_CENTROS_COSTO.Inputs[Entrada de destino de OLE DB].Columns[FIN_CC_DESCR]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="FIN_CC_DESCR"
+                      externalMetadataColumnId="Package\Solo Centros de costo\DT_CENTROS_COSTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[FIN_CC_DESCR]"
+                      lineageId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].Columns[FIN_CC_DESCR]" />
+                    <inputColumn
+                      refId="Package\Solo Centros de costo\DT_CENTROS_COSTO.Inputs[Entrada de destino de OLE DB].Columns[FIN_CC_CLAVE_UNOP]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="FIN_CC_CLAVE_UNOP"
+                      externalMetadataColumnId="Package\Solo Centros de costo\DT_CENTROS_COSTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[FIN_CC_CLAVE_UNOP]"
+                      lineageId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].Columns[FIN_CC_CLAVE_UNOP]" />
+                    <inputColumn
+                      refId="Package\Solo Centros de costo\DT_CENTROS_COSTO.Inputs[Entrada de destino de OLE DB].Columns[FIN_CC_DESCR_UNOP]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="FIN_CC_DESCR_UNOP"
+                      externalMetadataColumnId="Package\Solo Centros de costo\DT_CENTROS_COSTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[FIN_CC_DESCR_UNOP]"
+                      lineageId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].Columns[FIN_CC_DESCR_UNOP]" />
+                    <inputColumn
+                      refId="Package\Solo Centros de costo\DT_CENTROS_COSTO.Inputs[Entrada de destino de OLE DB].Columns[FIN_CC_DESCR_CORTA_UNOP]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FIN_CC_DESCR_CORTA_UNOP"
+                      externalMetadataColumnId="Package\Solo Centros de costo\DT_CENTROS_COSTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[FIN_CC_DESCR_CORTA_UNOP]"
+                      lineageId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].Columns[FIN_CC_DESCR_CORTA_UNOP]" />
+                    <inputColumn
+                      refId="Package\Solo Centros de costo\DT_CENTROS_COSTO.Inputs[Entrada de destino de OLE DB].Columns[fuente]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="fuente"
+                      externalMetadataColumnId="Package\Solo Centros de costo\DT_CENTROS_COSTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[fuente]"
+                      lineageId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB].Columns[fuente]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Solo Centros de costo\DT_CENTROS_COSTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[CENTRO_COSTO_ANIO]"
+                      dataType="numeric"
+                      name="CENTRO_COSTO_ANIO"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\Solo Centros de costo\DT_CENTROS_COSTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[FIN_CC_CLAVE_UNIF]"
+                      dataType="wstr"
+                      length="15"
+                      name="FIN_CC_CLAVE_UNIF" />
+                    <externalMetadataColumn
+                      refId="Package\Solo Centros de costo\DT_CENTROS_COSTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[FIN_CC_DESCR]"
+                      dataType="wstr"
+                      length="100"
+                      name="FIN_CC_DESCR" />
+                    <externalMetadataColumn
+                      refId="Package\Solo Centros de costo\DT_CENTROS_COSTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[FIN_CC_CLAVE_UNOP]"
+                      dataType="wstr"
+                      length="10"
+                      name="FIN_CC_CLAVE_UNOP" />
+                    <externalMetadataColumn
+                      refId="Package\Solo Centros de costo\DT_CENTROS_COSTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[FIN_CC_DESCR_UNOP]"
+                      dataType="wstr"
+                      length="100"
+                      name="FIN_CC_DESCR_UNOP" />
+                    <externalMetadataColumn
+                      refId="Package\Solo Centros de costo\DT_CENTROS_COSTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[FIN_CC_DESCR_CORTA_UNOP]"
+                      dataType="wstr"
+                      length="50"
+                      name="FIN_CC_DESCR_CORTA_UNOP" />
+                    <externalMetadataColumn
+                      refId="Package\Solo Centros de costo\DT_CENTROS_COSTO.Inputs[Entrada de destino de OLE DB].ExternalColumns[fuente]"
+                      dataType="wstr"
+                      length="5"
+                      name="fuente" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Solo Centros de costo\DT_CENTROS_COSTO.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Solo Centros de costo\DT_CENTROS_COSTO.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Solo Centros de costo\DT_CENTROS_COSTO.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Solo Centros de costo\DT_CENTROS_COSTO.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Solo Centros de costo\DT_CENTROS_COSTO.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Solo Centros de costo\DT_CENTROS_COSTO.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Solo Centros de costo.Paths[Salida de origen de OLE DB]"
+              endId="Package\Solo Centros de costo\DT_CENTROS_COSTO.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de OLE DB"
+              startId="Package\Solo Centros de costo\Centros de Costo.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -4110,6 +4559,14 @@ FROM ODS_FIN_CCOSTOS</property>
           Id="Package\Centros Costo"
           TopLeft="18.5,236.5" />
         <NodeLayout
+          Size="137,42"
+          Id="Package\Presupuesto"
+          TopLeft="625.5,109.5" />
+        <NodeLayout
+          Size="181,42"
+          Id="Package\Prueba borrado batch"
+          TopLeft="323.5,112.5" />
+        <NodeLayout
           Size="176,42"
           Id="Package\Tarea Flujo de datos"
           TopLeft="5.5,5.5" />
@@ -4117,14 +4574,6 @@ FROM ODS_FIN_CCOSTOS</property>
           Size="176,43"
           Id="Package\Unidades Operativas"
           TopLeft="5.5,122.5" />
-        <NodeLayout
-          Size="181,42"
-          Id="Package\Prueba borrado batch"
-          TopLeft="323.5,112.5" />
-        <NodeLayout
-          Size="137,42"
-          Id="Package\Presupuesto"
-          TopLeft="625.5,109.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
           TopLeft="504.5,132">
@@ -4147,6 +4596,10 @@ FROM ODS_FIN_CCOSTOS</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="181,42"
+          Id="Package\Solo Centros de costo"
+          TopLeft="281.5,231.5" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -4159,6 +4612,14 @@ FROM ODS_FIN_CCOSTOS</property>
           Size="199,42"
           Id="Package\Centros Costo\Seguridad CCosto Nodum"
           TopLeft="60,163.215639810427" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Centros Costo\DT_CENTROS_COSTO"
+          TopLeft="341,64" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Centros Costo\Centros de Costo"
+          TopLeft="109,64" />
         <NodeLayout
           Size="202,42"
           Id="Package\Centros Costo\USER_SECURITY_NODUM"
@@ -4185,14 +4646,6 @@ FROM ODS_FIN_CCOSTOS</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="184,42"
-          Id="Package\Centros Costo\DT_CENTROS_COSTO"
-          TopLeft="341,64" />
-        <NodeLayout
-          Size="159,42"
-          Id="Package\Centros Costo\Centros de Costo"
-          TopLeft="109,64" />
         <EdgeLayout
           Id="Package\Centros Costo.Paths[Salida de origen de OLE DB1]"
           TopLeft="268,85">
@@ -4496,5 +4949,43 @@ FROM ODS_FIN_CCOSTOS</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Solo Centros de costo">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Solo Centros de costo\DT_CENTROS_COSTO"
+          TopLeft="292,60" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Solo Centros de costo\Centros de Costo"
+          TopLeft="60,60" />
+        <EdgeLayout
+          Id="Package\Solo Centros de costo.Paths[Salida de origen de OLE DB]"
+          TopLeft="219,81">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="73,0"
+              Start="0,0"
+              End="65.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="65.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

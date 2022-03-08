@@ -12,8 +12,8 @@
   DTS:ObjectName="Finanzas"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="30"
-  DTS:VersionGUID="{5F8E4527-7CF1-437A-BC96-793FDC646508}">
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{92BC6BD3-C303-4442-B9F9-AC3B98A111BE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -48,12 +48,12 @@
           DTS:ConnectionString="Data Source=PROD-UCUDBS10\POWERBI;User ID=rcalvo;Initial Catalog=ODS_UCU;Provider=SQLNCLI11.1;Auto Translate=False;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="0x9f/JIpyPk="
-            IV="/0/4J4qL1+ziSLabvLspUQ==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="cKDHnnZC+Vo="
+            IV="oyLb4P/piBn/e0Cug5ITpw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>/0/4J4qL1+ziSLabvLspUV/VLRkl0D8ubBYWephw9jdSu4sWCRYm6/9iH9RfL+bHdFFE+tCzOU+dPCqN+xx9MkkWKu2SEQeww2SveTyNpWdVBkkZl5FYxpcQZSCmAdYw/dqJrAFIy0bCXDlbft31OQXwHfD9cJ2lSDsDfLs31xpVi75FPUmjN2VFAaWvjYdV</CipherValue>
+              <CipherValue>oyLb4P/piBn/e0Cug5ITp6YTOSkR397vZ8lNX2qO+pHy3UxgMxTF8UyMvMWoisQzTiTPlpM07npzrayu6hEsTRNeTSKOVvqzoHJPTZeTYcYRorHuFxkUrxO2QceLxzlgxz+6GE3VrTBW12+esHTvvMyhGT3+vOxpR9JHvBT84ERJ5dqPkV8OV2AzGKHm6yDa</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -119,7 +119,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{930BC459-2D6A-43B9-906A-D3D946486EA1}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE FIN_DT_PLAN_DE_CUENTAS&#xA;TRUNCATE TABLE FIN_DT_CENTROS_COSTOS&#xA;TRUNCATE TABLE DT_FIN_UNIDAD_OPERATIVA&#xA;TRUNCATE TABLE FIN_FT_PRESUPUESTO&#xA;TRUNCATE TABLE DT_UNIDAD_OPERATIVA_CLASIF&#xA;TRUNCATE TABLE USER_SECURITY_NODUM" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE FIN_DT_PLAN_DE_CUENTAS&#xA;TRUNCATE TABLE FIN_DT_CENTROS_COSTOS&#xA;TRUNCATE TABLE DT_FIN_UNIDAD_OPERATIVA&#xA;TRUNCATE TABLE FIN_FT_PRESUPUESTO&#xA;TRUNCATE TABLE DT_UNIDAD_OPERATIVA_CLASIF&#xA;TRUNCATE TABLE USER_SECURITY_NODUM&#xA;TRUNCATE TABLE DT_CENTROS_COSTO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
