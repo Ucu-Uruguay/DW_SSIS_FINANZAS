@@ -12,8 +12,8 @@
   DTS:ObjectName="Finanzas"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="31"
-  DTS:VersionGUID="{92BC6BD3-C303-4442-B9F9-AC3B98A111BE}">
+  DTS:VersionBuild="32"
+  DTS:VersionGUID="{219FA01D-C5BA-4ED0-8E72-64D055CE376A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -48,12 +48,12 @@
           DTS:ConnectionString="Data Source=PROD-UCUDBS10\POWERBI;User ID=rcalvo;Initial Catalog=ODS_UCU;Provider=SQLNCLI11.1;Auto Translate=False;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="cKDHnnZC+Vo="
-            IV="oyLb4P/piBn/e0Cug5ITpw==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="TBvl/ADDWnY="
+            IV="si+scd58AQRXn2hHFnILqA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>oyLb4P/piBn/e0Cug5ITp6YTOSkR397vZ8lNX2qO+pHy3UxgMxTF8UyMvMWoisQzTiTPlpM07npzrayu6hEsTRNeTSKOVvqzoHJPTZeTYcYRorHuFxkUrxO2QceLxzlgxz+6GE3VrTBW12+esHTvvMyhGT3+vOxpR9JHvBT84ERJ5dqPkV8OV2AzGKHm6yDa</CipherValue>
+              <CipherValue>si+scd58AQRXn2hHFnILqGmN4sAxPotKCmnzGrBo0kUNNFEK/q9noLz9bUuI6GUuvQfe16vWKOczYzDkUFW+umqH8ecJydN7NfnPMgFJ4LyTZ+06FSYM0BUovcpvZAKS2w2HURbk4IyRhWnIaHJssoL9N1mQxxSZGaEoLC0t+mykL0yRMQ1dhxAKqpXuUHck</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -1287,6 +1287,151 @@
               </outputs>
             </component>
             <component
+              refId="Package\Finanzas Actual\FIN_CCosto_ProgAcad"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="FIN_CCosto_ProgAcad"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[FIN_CCosto_ProgAcad]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Finanzas Actual\FIN_CCosto_ProgAcad.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[PROD-UCUDBS10\POWERBI.DW_UCU]"
+                  connectionManagerRefId="Package.ConnectionManagers[PROD-UCUDBS10\POWERBI.DW_UCU]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Finanzas Actual\FIN_CCosto_ProgAcad.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Finanzas Actual\FIN_CCosto_ProgAcad.Inputs[Entrada de destino de OLE DB].Columns[centro_costo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="centro_costo"
+                      externalMetadataColumnId="Package\Finanzas Actual\FIN_CCosto_ProgAcad.Inputs[Entrada de destino de OLE DB].ExternalColumns[centro_costo]"
+                      lineageId="Package\Finanzas Actual\Mapeo Centro Costos Carrera.Outputs[Salida de origen de OLE DB].Columns[centro_costo]" />
+                    <inputColumn
+                      refId="Package\Finanzas Actual\FIN_CCosto_ProgAcad.Inputs[Entrada de destino de OLE DB].Columns[campus]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="campus"
+                      externalMetadataColumnId="Package\Finanzas Actual\FIN_CCosto_ProgAcad.Inputs[Entrada de destino de OLE DB].ExternalColumns[campus]"
+                      lineageId="Package\Finanzas Actual\Mapeo Centro Costos Carrera.Outputs[Salida de origen de OLE DB].Columns[campus]" />
+                    <inputColumn
+                      refId="Package\Finanzas Actual\FIN_CCosto_ProgAcad.Inputs[Entrada de destino de OLE DB].Columns[prog_acad_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="prog_acad_id"
+                      externalMetadataColumnId="Package\Finanzas Actual\FIN_CCosto_ProgAcad.Inputs[Entrada de destino de OLE DB].ExternalColumns[prog_acad_id]"
+                      lineageId="Package\Finanzas Actual\Mapeo Centro Costos Carrera.Outputs[Salida de origen de OLE DB].Columns[prog_acad_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Finanzas Actual\FIN_CCosto_ProgAcad.Inputs[Entrada de destino de OLE DB].ExternalColumns[centro_costo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="centro_costo" />
+                    <externalMetadataColumn
+                      refId="Package\Finanzas Actual\FIN_CCosto_ProgAcad.Inputs[Entrada de destino de OLE DB].ExternalColumns[campus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="campus" />
+                    <externalMetadataColumn
+                      refId="Package\Finanzas Actual\FIN_CCosto_ProgAcad.Inputs[Entrada de destino de OLE DB].ExternalColumns[prog_acad_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="prog_acad_id" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Finanzas Actual\FIN_CCosto_ProgAcad.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Finanzas Actual\FIN_CCosto_ProgAcad.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Finanzas Actual\FIN_CCosto_ProgAcad.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Finanzas Actual\FIN_CCosto_ProgAcad.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Finanzas Actual\FIN_CCosto_ProgAcad.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Finanzas Actual\FIN_CCosto_ProgAcad.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Finanzas Actual\FIN_DT_CENTROS_COSTOS"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
@@ -2502,6 +2647,170 @@
                       refId="Package\Finanzas Actual\Magix hasta 2020.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Finanzas Actual\Magix hasta 2020.Outputs[Salida de error de división condicional].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Finanzas Actual\Mapeo Centro Costos Carrera"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Mapeo Centro Costos Carrera"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select c.cod_dpto CC, neg.cod_negocio, carr.cod_carrera_sis 
+from ODS_NDM_CONT_ct_dptos c
+left join ODS_NDM_CONT_ct_dptosneg neg on c.cod_dpto=neg.cod_dpto
+left join ODS_NDM_CONT_ct_codsiscarrera carr on c.cod_dpto=carr.cod_dpto
+where neg.cod_negocio&lt;&gt;'0' and c.cod_dpto&lt;&gt;'0'</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Finanzas Actual\Mapeo Centro Costos Carrera.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[PROD-UCUDBS10\POWERBI.ODS_UCU.rcalvo]"
+                  connectionManagerRefId="Package.ConnectionManagers[PROD-UCUDBS10\POWERBI.ODS_UCU.rcalvo]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Finanzas Actual\Mapeo Centro Costos Carrera.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Finanzas Actual\Mapeo Centro Costos Carrera.Outputs[Salida de origen de OLE DB].Columns[centro_costo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Finanzas Actual\Mapeo Centro Costos Carrera.Outputs[Salida de origen de OLE DB].ExternalColumns[CC]"
+                      length="15"
+                      lineageId="Package\Finanzas Actual\Mapeo Centro Costos Carrera.Outputs[Salida de origen de OLE DB].Columns[centro_costo]"
+                      name="centro_costo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Finanzas Actual\Mapeo Centro Costos Carrera.Outputs[Salida de origen de OLE DB].Columns[campus]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Finanzas Actual\Mapeo Centro Costos Carrera.Outputs[Salida de origen de OLE DB].ExternalColumns[cod_negocio]"
+                      length="15"
+                      lineageId="Package\Finanzas Actual\Mapeo Centro Costos Carrera.Outputs[Salida de origen de OLE DB].Columns[campus]"
+                      name="campus"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Finanzas Actual\Mapeo Centro Costos Carrera.Outputs[Salida de origen de OLE DB].Columns[prog_acad_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Finanzas Actual\Mapeo Centro Costos Carrera.Outputs[Salida de origen de OLE DB].ExternalColumns[cod_carrera_sis]"
+                      length="10"
+                      lineageId="Package\Finanzas Actual\Mapeo Centro Costos Carrera.Outputs[Salida de origen de OLE DB].Columns[prog_acad_id]"
+                      name="prog_acad_id"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Finanzas Actual\Mapeo Centro Costos Carrera.Outputs[Salida de origen de OLE DB].ExternalColumns[CC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="CC" />
+                    <externalMetadataColumn
+                      refId="Package\Finanzas Actual\Mapeo Centro Costos Carrera.Outputs[Salida de origen de OLE DB].ExternalColumns[cod_negocio]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="cod_negocio" />
+                    <externalMetadataColumn
+                      refId="Package\Finanzas Actual\Mapeo Centro Costos Carrera.Outputs[Salida de origen de OLE DB].ExternalColumns[cod_carrera_sis]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="cod_carrera_sis" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Finanzas Actual\Mapeo Centro Costos Carrera.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Finanzas Actual\Mapeo Centro Costos Carrera.Outputs[Salida de error de origen de OLE DB].Columns[CC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\Finanzas Actual\Mapeo Centro Costos Carrera.Outputs[Salida de error de origen de OLE DB].Columns[CC]"
+                      name="CC" />
+                    <outputColumn
+                      refId="Package\Finanzas Actual\Mapeo Centro Costos Carrera.Outputs[Salida de error de origen de OLE DB].Columns[cod_negocio]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\Finanzas Actual\Mapeo Centro Costos Carrera.Outputs[Salida de error de origen de OLE DB].Columns[cod_negocio]"
+                      name="cod_negocio" />
+                    <outputColumn
+                      refId="Package\Finanzas Actual\Mapeo Centro Costos Carrera.Outputs[Salida de error de origen de OLE DB].Columns[cod_carrera_sis]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Finanzas Actual\Mapeo Centro Costos Carrera.Outputs[Salida de error de origen de OLE DB].Columns[cod_carrera_sis]"
+                      name="cod_carrera_sis" />
+                    <outputColumn
+                      refId="Package\Finanzas Actual\Mapeo Centro Costos Carrera.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Finanzas Actual\Mapeo Centro Costos Carrera.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Finanzas Actual\Mapeo Centro Costos Carrera.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Finanzas Actual\Mapeo Centro Costos Carrera.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -5949,6 +6258,11 @@ GROUP BY CENTRO_COSTO_NOD_DEPTO_ID, CENTRO_COSTO_NOD_DEPTO_TIPO, CENTRO_COSTO_NO
               name="Salida de origen de OLE DB"
               startId="Package\Finanzas Actual\Seguridad CCosto Nodum.Outputs[Salida de origen de OLE DB]" />
             <path
+              refId="Package\Finanzas Actual.Paths[Salida de origen de OLE DB7]"
+              endId="Package\Finanzas Actual\FIN_CCosto_ProgAcad.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de OLE DB"
+              startId="Package\Finanzas Actual\Mapeo Centro Costos Carrera.Outputs[Salida de origen de OLE DB]" />
+            <path
               refId="Package\Finanzas Actual.Paths[Salida de Unión de todo 1]"
               endId="Package\Finanzas Actual\FIN_DT_CENTROS_COSTOS.Inputs[Entrada de destino de OLE DB]"
               name="Salida de Unión de todo 1"
@@ -6017,7 +6331,7 @@ GROUP BY CENTRO_COSTO_NOD_DEPTO_ID, CENTRO_COSTO_NOD_DEPTO_TIPO, CENTRO_COSTO_NO
     design-time-name="Package\Finanzas Actual">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="145,42"
           Id="Package\Finanzas Actual\Unión de todo"
@@ -6401,6 +6715,36 @@ GROUP BY CENTRO_COSTO_NOD_DEPTO_ID, CENTRO_COSTO_NOD_DEPTO_TIPO, CENTRO_COSTO_NO
           Size="312,40"
           Id="9ae519b7-f9e7-4811-893e-40f52b385635"
           TopLeft="53,274" />
+        <NodeLayout
+          Size="217,42"
+          Id="Package\Finanzas Actual\Mapeo Centro Costos Carrera"
+          TopLeft="16.5,448.481947787447" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Finanzas Actual\FIN_CCosto_ProgAcad"
+          TopLeft="291.908212560386,448.481947787447" />
+        <EdgeLayout
+          Id="Package\Finanzas Actual.Paths[Salida de origen de OLE DB7]"
+          TopLeft="233.5,469.481947787447">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="58.4082125603865,0"
+              Start="0,0"
+              End="50.9082125603865,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="50.9082125603865,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -6555,6 +6899,27 @@ GROUP BY CENTRO_COSTO_NOD_DEPTO_ID, CENTRO_COSTO_NOD_DEPTO_TIPO, CENTRO_COSTO_NO
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Finanzas Actual\Unidades Operativas TODO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Finanzas Actual\Mapeo Centro Costos Carrera">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Finanzas Actual\FIN_CCosto_ProgAcad">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
