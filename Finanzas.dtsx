@@ -12,8 +12,8 @@
   DTS:ObjectName="Finanzas"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="32"
-  DTS:VersionGUID="{219FA01D-C5BA-4ED0-8E72-64D055CE376A}">
+  DTS:VersionBuild="33"
+  DTS:VersionGUID="{D50D4BC7-2A13-4DD2-9641-3B8D373902BB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -48,12 +48,12 @@
           DTS:ConnectionString="Data Source=PROD-UCUDBS10\POWERBI;User ID=rcalvo;Initial Catalog=ODS_UCU;Provider=SQLNCLI11.1;Auto Translate=False;">
           <EncryptedData
             Type="http://www.w3.org/2001/04/xmlenc#Element"
-            Salt="TBvl/ADDWnY="
-            IV="si+scd58AQRXn2hHFnILqA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
+            Salt="YRQHYwujYVk="
+            IV="DsMHIK93ar3sYJLqSI4LAA==" xmlns="http://www.w3.org/2001/04/xmlenc#">
             <EncryptionMethod
               Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc" />
             <CipherData>
-              <CipherValue>si+scd58AQRXn2hHFnILqGmN4sAxPotKCmnzGrBo0kUNNFEK/q9noLz9bUuI6GUuvQfe16vWKOczYzDkUFW+umqH8ecJydN7NfnPMgFJ4LyTZ+06FSYM0BUovcpvZAKS2w2HURbk4IyRhWnIaHJssoL9N1mQxxSZGaEoLC0t+mykL0yRMQ1dhxAKqpXuUHck</CipherValue>
+              <CipherValue>DsMHIK93ar3sYJLqSI4LAI7ktx0u5CwP43NJz42KLbg0W+ZZrfPYLGPquYtswlG0sdCrxhhxhokkYdGKnYxUSlGwV63OXX4Kx4Rr5CsDdHzUeRWmFPe7KWZDUjS0LkAV0g9HzOXzUwhEbPPdCLHbiOhd8fgrOGwSimWUeYEiC+IlU9TpxN/JpcxskmHCI1C2</CipherValue>
             </CipherData>
           </EncryptedData>
         </DTS:ConnectionManager>
@@ -119,7 +119,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{930BC459-2D6A-43B9-906A-D3D946486EA1}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE FIN_DT_PLAN_DE_CUENTAS&#xA;TRUNCATE TABLE FIN_DT_CENTROS_COSTOS&#xA;TRUNCATE TABLE DT_FIN_UNIDAD_OPERATIVA&#xA;TRUNCATE TABLE FIN_FT_PRESUPUESTO&#xA;TRUNCATE TABLE DT_UNIDAD_OPERATIVA_CLASIF&#xA;TRUNCATE TABLE USER_SECURITY_NODUM&#xA;TRUNCATE TABLE DT_CENTROS_COSTO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE FIN_DT_PLAN_DE_CUENTAS&#xA;TRUNCATE TABLE FIN_DT_CENTROS_COSTOS&#xA;TRUNCATE TABLE DT_FIN_UNIDAD_OPERATIVA&#xA;TRUNCATE TABLE FIN_FT_PRESUPUESTO&#xA;TRUNCATE TABLE DT_UNIDAD_OPERATIVA_CLASIF&#xA;TRUNCATE TABLE USER_SECURITY_NODUM&#xA;TRUNCATE TABLE DT_CENTROS_COSTO&#xA;TRUNCATE TABLE FIN_CCosto_ProgAcad" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -6333,29 +6333,13 @@ GROUP BY CENTRO_COSTO_NOD_DEPTO_ID, CENTRO_COSTO_NOD_DEPTO_TIPO, CENTRO_COSTO_NO
       <GraphLayout
         Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="145,42"
-          Id="Package\Finanzas Actual\Unión de todo"
-          TopLeft="598.5,106.5" />
-        <NodeLayout
-          Size="194,42"
-          Id="Package\Finanzas Actual\Mapeo Centros de Costo"
-          TopLeft="5.5,106.5" />
-        <NodeLayout
           Size="238,42"
           Id="Package\Finanzas Actual\DT_UNIDAD_OPERATIVA_CLASIF"
           TopLeft="797.454909819639,305.5" />
         <NodeLayout
-          Size="215,42"
-          Id="Package\Finanzas Actual\FIN_DT_PLAN_DE_CUENTAS"
-          TopLeft="234.5,4.5" />
-        <NodeLayout
-          Size="173,42"
-          Id="Package\Finanzas Actual\Columna derivada 1"
-          TopLeft="393.5,160.5" />
-        <NodeLayout
-          Size="212,42"
-          Id="Package\Finanzas Actual\FIN_DT_CENTROS_COSTOS"
-          TopLeft="786.5,106.5" />
+          Size="145,42"
+          Id="Package\Finanzas Actual\Unión de todo"
+          TopLeft="598.5,106.5" />
         <NodeLayout
           Size="137,42"
           Id="Package\Finanzas Actual\Presupuesto"
@@ -6366,32 +6350,56 @@ GROUP BY CENTRO_COSTO_NOD_DEPTO_ID, CENTRO_COSTO_NOD_DEPTO_TIPO, CENTRO_COSTO_NO
           TopLeft="234.5,106.5" />
         <NodeLayout
           Size="184,42"
-          Id="Package\Finanzas Actual\DT_CENTROS_COSTO"
-          TopLeft="250.254628557772,223" />
-        <NodeLayout
-          Size="189,42"
-          Id="Package\Finanzas Actual\FIN_FT_PRESUPUESTO"
-          TopLeft="241.5,379.5" />
-        <NodeLayout
-          Size="202,42"
-          Id="Package\Finanzas Actual\Unidades Operativas NDM"
-          TopLeft="12.5,301.5" />
+          Id="Package\Finanzas Actual\FIN_CCosto_ProgAcad"
+          TopLeft="291.908212560386,448.481947787447" />
         <NodeLayout
           Size="153,42"
           Id="Package\Finanzas Actual\Plan de cuentas"
           TopLeft="5.5,5.5" />
         <NodeLayout
           Size="202,42"
+          Id="Package\Finanzas Actual\Unidades Operativas NDM"
+          TopLeft="12.5,301.5" />
+        <NodeLayout
+          Size="217,42"
+          Id="Package\Finanzas Actual\Mapeo Centro Costos Carrera"
+          TopLeft="16.5,448.481947787447" />
+        <NodeLayout
+          Size="202,42"
           Id="Package\Finanzas Actual\USER_SECURITY_NODUM"
           TopLeft="764.830917874396,220.284360189573" />
+        <NodeLayout
+          Size="215,42"
+          Id="Package\Finanzas Actual\FIN_DT_PLAN_DE_CUENTAS"
+          TopLeft="234.5,4.5" />
+        <NodeLayout
+          Size="199,42"
+          Id="Package\Finanzas Actual\Seguridad CCosto Nodum"
+          TopLeft="497.5,221.5" />
+        <NodeLayout
+          Size="212,42"
+          Id="Package\Finanzas Actual\FIN_DT_CENTROS_COSTOS"
+          TopLeft="786.5,106.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Finanzas Actual\Columna derivada 1"
+          TopLeft="393.5,160.5" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\Finanzas Actual\Unidades Operativas TODO"
+          TopLeft="499.5,307.5" />
         <NodeLayout
           Size="221,42"
           Id="Package\Finanzas Actual\DT_FIN_UNIDAD_OPERATIVA"
           TopLeft="241.5,303.5" />
         <NodeLayout
-          Size="199,42"
-          Id="Package\Finanzas Actual\Seguridad CCosto Nodum"
-          TopLeft="497.5,221.5" />
+          Size="194,42"
+          Id="Package\Finanzas Actual\Mapeo Centros de Costo"
+          TopLeft="5.5,106.5" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Finanzas Actual\DT_CENTROS_COSTO"
+          TopLeft="250.254628557772,223" />
         <NodeLayout
           Size="159,42"
           Id="Package\Finanzas Actual\Centros de Costo"
@@ -6401,9 +6409,75 @@ GROUP BY CENTRO_COSTO_NOD_DEPTO_ID, CENTRO_COSTO_NOD_DEPTO_TIPO, CENTRO_COSTO_NO
           Id="Package\Finanzas Actual\Columna derivada"
           TopLeft="393.5,62.5" />
         <NodeLayout
-          Size="208,42"
-          Id="Package\Finanzas Actual\Unidades Operativas TODO"
-          TopLeft="499.5,307.5" />
+          Size="189,42"
+          Id="Package\Finanzas Actual\FIN_FT_PRESUPUESTO"
+          TopLeft="241.5,379.5" />
+        <EdgeLayout
+          Id="Package\Finanzas Actual.Paths[Salida de Unión de todo 1]"
+          TopLeft="743.5,127.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="43,0"
+              Start="0,0"
+              End="35.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="35.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Finanzas Actual.Paths[Salida de origen de OLE DB7]"
+          TopLeft="233.5,469.481947787447">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="58.408212560386,0"
+              Start="0,0"
+              End="50.908212560386,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="50.908212560386,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Finanzas Actual.Paths[Salida de origen de OLE DB6]"
+          TopLeft="696.5,241.892180094787">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="68.3309178743961,0"
+              Start="0,0"
+              End="60.8309178743961,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="60.8309178743961,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Finanzas Actual.Paths[Salida de origen de OLE DB5]"
           TopLeft="177.254628557772,244">
@@ -6664,50 +6738,6 @@ GROUP BY CENTRO_COSTO_NOD_DEPTO_ID, CENTRO_COSTO_NOD_DEPTO_TIPO, CENTRO_COSTO_NO
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Finanzas Actual.Paths[Salida de Unión de todo 1]"
-          TopLeft="743.5,127.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="43,0"
-              Start="0,0"
-              End="35.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="35.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Finanzas Actual.Paths[Salida de origen de OLE DB6]"
-          TopLeft="696.5,241.892180094787">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="68.3309178743961,0"
-              Start="0,0"
-              End="60.8309178743961,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="60.8309178743961,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <AnnotationLayout
           Text="Esto hay que eliminarlo cuando se verifique no se usa"
           ParentId="Package\Finanzas Actual"
@@ -6715,41 +6745,24 @@ GROUP BY CENTRO_COSTO_NOD_DEPTO_ID, CENTRO_COSTO_NOD_DEPTO_TIPO, CENTRO_COSTO_NO
           Size="312,40"
           Id="9ae519b7-f9e7-4811-893e-40f52b385635"
           TopLeft="53,274" />
-        <NodeLayout
-          Size="217,42"
-          Id="Package\Finanzas Actual\Mapeo Centro Costos Carrera"
-          TopLeft="16.5,448.481947787447" />
-        <NodeLayout
-          Size="184,42"
-          Id="Package\Finanzas Actual\FIN_CCosto_ProgAcad"
-          TopLeft="291.908212560386,448.481947787447" />
-        <EdgeLayout
-          Id="Package\Finanzas Actual.Paths[Salida de origen de OLE DB7]"
-          TopLeft="233.5,469.481947787447">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="58.4082125603865,0"
-              Start="0,0"
-              End="50.9082125603865,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="50.9082125603865,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Finanzas Actual\Mapeo Centros de Costo">
+    design-time-name="Package\Finanzas Actual\DT_UNIDAD_OPERATIVA_CLASIF">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Finanzas Actual\Presupuesto">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -6757,7 +6770,44 @@ GROUP BY CENTRO_COSTO_NOD_DEPTO_ID, CENTRO_COSTO_NOD_DEPTO_TIPO, CENTRO_COSTO_NO
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Finanzas Actual\DT_UNIDAD_OPERATIVA_CLASIF">
+    design-time-name="Package\Finanzas Actual\FIN_CCosto_ProgAcad">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Finanzas Actual\Plan de cuentas">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Finanzas Actual\Unidades Operativas NDM">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Finanzas Actual\Mapeo Centro Costos Carrera">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Finanzas Actual\USER_SECURITY_NODUM">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -6783,95 +6833,6 @@ GROUP BY CENTRO_COSTO_NOD_DEPTO_ID, CENTRO_COSTO_NOD_DEPTO_TIPO, CENTRO_COSTO_NO
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Finanzas Actual\FIN_DT_CENTROS_COSTOS">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Finanzas Actual\Presupuesto">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Finanzas Actual\DT_CENTROS_COSTO">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Finanzas Actual\FIN_FT_PRESUPUESTO">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Finanzas Actual\Unidades Operativas NDM">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Finanzas Actual\Plan de cuentas">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Finanzas Actual\USER_SECURITY_NODUM">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Finanzas Actual\DT_FIN_UNIDAD_OPERATIVA">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Finanzas Actual\Seguridad CCosto Nodum">
     <Properties>
       <Property>
@@ -6885,7 +6846,7 @@ GROUP BY CENTRO_COSTO_NOD_DEPTO_ID, CENTRO_COSTO_NOD_DEPTO_TIPO, CENTRO_COSTO_NO
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Finanzas Actual\Centros de Costo">
+    design-time-name="Package\Finanzas Actual\FIN_DT_CENTROS_COSTOS">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -6911,7 +6872,20 @@ GROUP BY CENTRO_COSTO_NOD_DEPTO_ID, CENTRO_COSTO_NOD_DEPTO_TIPO, CENTRO_COSTO_NO
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Finanzas Actual\Mapeo Centro Costos Carrera">
+    design-time-name="Package\Finanzas Actual\DT_FIN_UNIDAD_OPERATIVA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Finanzas Actual\Mapeo Centros de Costo">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -6919,7 +6893,33 @@ GROUP BY CENTRO_COSTO_NOD_DEPTO_ID, CENTRO_COSTO_NOD_DEPTO_TIPO, CENTRO_COSTO_NO
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Finanzas Actual\FIN_CCosto_ProgAcad">
+    design-time-name="Package\Finanzas Actual\DT_CENTROS_COSTO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Finanzas Actual\Centros de Costo">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Finanzas Actual\FIN_FT_PRESUPUESTO">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
